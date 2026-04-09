@@ -1,155 +1,156 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Organigramme BioTis</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Organigramme BioTis</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      background-color: #ffffff;
-      font-family: Arial, sans-serif;
-    }
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+}
 
-    /* CENTRAGE */
-    .biotis-wrapper {
-      padding: 20px;
-      width: 100%;
-      max-width: 1300px;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
+/* ✅ BOUTON PARFAITEMENT CENTRÉ */
+.pdf-btn {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
 
-    /* BOUTON */
-    .pdf-btn {
-      text-align: center;
-      margin: 20px 0;
-    }
+#download-pdf {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #4c84c3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    #download-pdf {
-      padding: 10px 20px;
-      background-color: #4c84c3;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+#download-pdf:hover {
+  background-color: #3a639c;
+}
 
-    #download-pdf:hover {
-      background-color: #3a639c;
-    }
+/* CONTENEUR */
+.biotis-wrapper {
+  padding: 20px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 
-    /* ENTETE */
-    .entete {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #e6f0ff;
-      border-radius: 10px;
-      padding: 20px 30px;
-      margin-bottom: 30px;
-      gap: 20px;
-    }
+/* ✅ SCALE POUR UNE SEULE PAGE */
+#pdf-content {
+  transform: scale(0.68);
+  transform-origin: top left;
+  width: 145%;
+}
 
-    .logo-gauche img { max-height: 80px; }
+/* ENTETE */
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e6f0ff;
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  gap: 20px;
+}
 
-    .titre-centre {
-      flex: 1;
-      text-align: center;
-    }
+.logo-gauche img { max-height: 80px; }
 
-    .titre-centre h1 {
-      font-size: 22px;
-      margin: 0 0 8px 0;
-    }
+.titre-centre {
+  flex: 1;
+  text-align: center;
+}
 
-    .titre-centre p {
-      font-weight: bold;
-      margin: 4px 0;
-    }
+.titre-centre h1 {
+  font-size: 22px;
+  margin: 0 0 8px 0;
+}
 
-    /* ✅ CORRECTION : logos empilés verticalement */
-    .logos-droite {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 10px;
-    }
+.titre-centre p {
+  font-weight: bold;
+  margin: 4px 0;
+}
 
-    .logos-droite img.inserm {
-      order: 1;
-      max-height: 70px;
-    }
+/* LOGOS */
+.logos-droite {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
 
-    .logos-droite img.universite {
-      order: 2;
-      max-height: 40px;
-    }
+.logos-droite img.inserm { max-height: 70px; }
+.logos-droite img.universite { max-height: 40px; }
 
-    /* ORGANIGRAMME */
-    .organigramme {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+/* ORGANIGRAMME */
+.organigramme {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-    .colonne {
-      flex: 1;
-      min-width: 300px;
-      padding: 15px;
-      border-radius: 10px;
-    }
+.colonne {
+  flex: 1;
+  min-width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+}
 
-    .col1 { background-color: #ffe6e6; }
-    .col2 { background-color: #e6f7e6; }
-    .col3 { background-color: #e6f0ff; }
+.col1 { background-color: #ffe6e6; }
+.col2 { background-color: #e6f7e6; }
+.col3 { background-color: #e6f0ff; }
 
-    h2 {
-      background-color: #ff6f61;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 16px;
-    }
+h2 {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
-    h3 {
-      background-color: #61a0d9;
-      color: white;
-      padding: 8px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
+h3 {
+  background-color: #61a0d9;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+}
 
-    ul { list-style: none; padding: 0; }
+ul { list-style: none; padding: 0; }
 
-    li {
-      background: #f9f9f9;
-      margin: 5px 0;
-      padding: 6px;
-      border-left: 4px solid #61a0d9;
-      font-size: 13px;
-    }
+li {
+  background: #f9f9f9;
+  margin: 5px 0;
+  padding: 6px;
+  border-left: 4px solid #61a0d9;
+  font-size: 13px;
+}
 
-    .sous-division {
-      background-color: #f2f7ff;
-      padding: 10px;
-      border-radius: 8px;
-    }
+.sous-division {
+  background-color: #f2f7ff;
+  padding: 10px;
+  border-radius: 8px;
+}
 
-    @media (max-width: 768px) {
-      .organigramme {
-        flex-direction: column;
-      }
-    }
-  </style>
+@media (max-width: 768px) {
+  .organigramme {
+    flex-direction: column;
+  }
+}
+</style>
 
-  <!-- LIB PDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -160,184 +161,195 @@
 
 <div id="pdf-content" class="biotis-wrapper">
 
-  <!-- ENTETE -->
-  <div class="entete">
-    <div class="logo-gauche">
-      <img src="https://www.biotis-bordeaux.com/images/biotis-bordeaux-laboratory-laboratoire-biotis-inserm-u1026/logo%20biotis.png">
-    </div>
-
-    <div class="titre-centre">
-      <h1>Tissue Bioengineering Laboratory (BioTis)</h1>
-      <p>Director : L’Heureux, Nicolas (DR, INSERM)</p>
-      <p>Deputy Director : Catros, Sylvain (PU-PH)</p>
-    </div>
-
-    <div class="logos-droite">
-      <img class="inserm" src="https://inserm.b-cdn.net/wp-content/uploads/2021/01/logo-inserm.svg">
-      <img class="universite" src="https://www.u-bordeaux.fr/packages/ub/themes/ub/img/logo-universite-bordeaux-150x44.png">
-    </div>
+<!-- ENTETE -->
+<div class="entete">
+  <div class="logo-gauche">
+    <img src="https://www.biotis-bordeaux.com/images/biotis-bordeaux-laboratory-laboratoire-biotis-inserm-u1026/logo%20biotis.png">
   </div>
 
-  <!-- ORGANIGRAMME -->
-  <div class="organigramme">
-
-    <!-- COLONNE 1 -->
-    <div class="colonne col1">
-      <h2>Researchers</h2>
-      <ul>
-        <li>Alonso, Florian (CR, Inserm)</li>
-        <li>Boiziau, Claudine (CR, Inserm, HDR)</li>
-        <li>Chassande, Olivier (CR, CNRS, HDR)</li>
-        <li>Génot, Élisabeth (DR, Inserm, HDR)</li>
-        <li>Kawecki, Fabien (CR, Inserm)</li>
-        <li>L’Heureux, Nicolas (DR, Inserm, HDR eq)</li>
-      </ul>
-
-      <h2>Teaching and Research Staff / Hospital Practitioners</h2>
-      <ul>
-        <li>Aussel, Audrey (MCU-PH)</li>
-        <li>Bérard, Xavier (PU-PH, HDR)</li>
-        <li>Catros, Sylvain (PU-PH, HDR)</li>
-        <li>De Monès, Erwan (MCU-PH, HDR)</li>
-        <li>Devillard, Raphaël (PU-PH, HDR)</li>
-        <li>Durand, Marlène (Déléguée CIC-IT, ADT)</li>
-        <li>Fabre, Thierry (PU-PH, HDR)</li>
-        <li>Fénelon, Mathilde (MCU-PH, HDR)</li>
-        <li>Fricain, Jean-Christophe (PU-PH, HDR)</li>
-        <li>Kérourédan, Olivia (MCU-PH, HDR)</li>
-        <li>L’Azou, Béatrice (PU, HDR)</li>
-        <li>Le Nihouannen, Damien (MCU, ADT)</li>
-        <li>Maurel, Delphine (MCU-HDR)</li>
-        <li>Naveau, Adrien (PU-PH, HDR)</li>
-        <li>Rigothier, Claire (PU-PH, HDR)</li>
-        <li>Schlund, Matthias (MCU-PH)</li>
-        <li>Simrani, Rawen (MCU-PH)</li>
-        <li>Thébaud, Noélie (MCU-PH)</li>
-      </ul>
-    </div>
-
-    <!-- COLONNE 2 -->
-    <div class="colonne col2">
-      <h2>ITA - BIATSS</h2>
-      <ul>
-        <li>Frémaux, Isabelle (IE, Inserm)</li>
-        <li>Ligneron, Jérôme (TC, EN)</li>
-        <li>Monfoulet, Cécile (AI, Inserm)</li>
-        <li>Rey, Sylvie (TC, Inserm)</li>
-      </ul>
-
-      <h2>CDD Inserm / University</h2>
-      <ul>
-        <li>Amara, Braham (TC, EN)</li>
-        <li>Blanchard, Camille (IE, Inserm)</li>
-        <li>Kawtharani, Line (IR, Inserm)</li>
-        <li>Pagin, Étienne (IE, Inserm)</li>
-      </ul>
-
-      <h2>Postdoctoral Researchers</h2>
-      <ul>
-        <li>Al Tabosh, Tala (EG)</li>
-        <li>Desigaux, Théo (JCF, 70%)</li>
-        <li>Lesieur, Romane (JA)</li>
-        <li>Potart, Diane (NLH)</li>
-        <li>Torres, Yoann (IR, Inserm)</li>
-      </ul>
-
-      <h2>Doctoral Students</h2>
-      <ul>
-        <li>Bedoux, Agathe (OK)</li>
-        <li>Dechelette, Camille (AN)</li>
-        <li>Galvez, Paul (MF)</li>
-        <li>Gellée, Léa (DM)</li>
-        <li>Medojevic, Mina (OK)</li>
-      </ul>
-
-      <h2>Master’s Students (2nd Year)</h2>
-      <ul>
-        <li>Chaouch, Rostom (MF)</li>
-        <li>Derouineau, Marius (CB)</li>
-        <li>Kodžaga, Laura (SC)</li>
-        <li>Lafourcade, Claire (RD)</li>
-        <li>Laran, Adrien (SC)</li>
-        <li>Laurent, Nathan (NLH)</li>
-        <li>Ly, Adrien (OK)</li>
-        <li>Lykourgioti, Persefoni (Erasmus)</li>
-        <li>Malaina Arjones, Arrate (FA)</li>
-        <li>Rouillier, Romane (FK)</li>
-      </ul>
-    </div>
-
-    <!-- COLONNE 3 -->
-    <div class="colonne col3">
-      <h2>ART BioPrint</h2>
-
-      <div class="sous-division">
-        <h3>Director ART</h3>
-        <ul>
-          <li><strong>Fricain, Jean-Christophe</strong> (PU-PH, HDR)</li>
-        </ul>
-      </div>
-
-      <h3>Research Team ART BioPrint</h3>
-      <ul>
-        <li>De Oliveira, Hugo (IR, Inserm, HDR): <strong>Coordinateur</strong></li>
-        <li>Dusserre, Nathalie (IR, Inserm)</li>
-        <li>Handschin, Charles (IR, Inserm)</li>
-        <li>Lea, Malou (TC, Inserm)</li>
-        <li>Stachowicz, Marie-Laure (IE, Inserm)</li>
-      </ul>
-
-      <h3>CDD Inserm</h3>
-      <ul>
-        <li>Deepshika, Arasu (IE, Inserm)</li>
-        <li>Fennell, Shane (IE, Inserm)</li>
-      </ul>
-
-      <h2>Shared Services</h2>
-
-      <h3>Quality</h3>
-      <ul>
-        <li>Castet, Evelyne (IA, Inserm - ART)</li>
-        <li>Dusserre, Nathalie (IR, Inserm)</li>
-      </ul>
-
-      <h3>Hygiene & Safety - PCR</h3>
-      <ul>
-        <li>Ligneron, Jérôme (TC, EN)</li>
-        <li>Monfoulet, Cécile (AI, Inserm)</li>
-      </ul>
-
-      <h3>Administrative and Financial Unit</h3>
-      <ul>
-        <li>Castet, Evelyne (IA, Inserm - ART)</li>
-        <li>Chatelus, Sophie (TC, Inserm - BioTis)</li>
-        <li>Viart, Pierre-Michel (TC, EN, 50%)</li>
-      </ul>
-
-      <h3>Information Technology and Maintenance</h3>
-      <ul>
-        <li>Amara, Braham (TC, EN)</li>
-      </ul>
-
-      <h3>Laundry / Sterilization</h3>
-      <ul>
-        <li>Auger, Béatrice (TC, EN 80%)</li>
-      </ul>
-    </div>
-
+  <div class="titre-centre">
+    <h1>Tissue Bioengineering Laboratory (BioTis)</h1>
+    <p>Director : L’Heureux, Nicolas (DR, INSERM)</p>
+    <p>Deputy Director : Catros, Sylvain (PU-PH)</p>
   </div>
+
+  <div class="logos-droite">
+    <img class="inserm" src="https://inserm.b-cdn.net/wp-content/uploads/2021/01/logo-inserm.svg">
+    <img class="universite" src="https://www.u-bordeaux.fr/packages/ub/themes/ub/img/logo-universite-bordeaux-150x44.png">
+  </div>
+</div>
+
+<!-- ORGANIGRAMME -->
+<div class="organigramme">
+
+<!-- COLONNE 1 -->
+<div class="colonne col1">
+<h2>Researchers</h2>
+<ul>
+<li>Alonso, Florian (CR, Inserm)</li>
+<li>Boiziau, Claudine (CR, Inserm, HDR)</li>
+<li>Chassande, Olivier (CR, CNRS, HDR)</li>
+<li>Génot, Élisabeth (DR, Inserm, HDR)</li>
+<li>Kawecki, Fabien (CR, Inserm)</li>
+<li>L’Heureux, Nicolas (DR, Inserm, HDR eq)</li>
+</ul>
+
+<h2>Teaching and Research Staff / Hospital Practitioners</h2>
+<ul>
+<li>Aussel, Audrey (MCU-PH)</li>
+<li>Bérard, Xavier (PU-PH, HDR)</li>
+<li>Catros, Sylvain (PU-PH, HDR)</li>
+<li>De Monès, Erwan (MCU-PH, HDR)</li>
+<li>Devillard, Raphaël (PU-PH, HDR)</li>
+<li>Durand, Marlène (Déléguée CIC-IT, ADT)</li>
+<li>Fabre, Thierry (PU-PH, HDR)</li>
+<li>Fénelon, Mathilde (MCU-PH, HDR)</li>
+<li>Fricain, Jean-Christophe (PU-PH, HDR)</li>
+<li>Kérourédan, Olivia (MCU-PH, HDR)</li>
+<li>L’Azou, Béatrice (PU, HDR)</li>
+<li>Le Nihouannen, Damien (MCU, ADT)</li>
+<li>Maurel, Delphine (MCU-HDR)</li>
+<li>Naveau, Adrien (PU-PH, HDR)</li>
+<li>Rigothier, Claire (PU-PH, HDR)</li>
+<li>Schlund, Matthias (MCU-PH)</li>
+<li>Simrani, Rawen (MCU-PH)</li>
+<li>Thébaud, Noélie (MCU-PH)</li>
+</ul>
+</div>
+
+<!-- COLONNE 2 -->
+<div class="colonne col2">
+<h2>ITA - BIATSS</h2>
+<ul>
+<li>Frémaux, Isabelle (IE, Inserm)</li>
+<li>Ligneron, Jérôme (TC, EN)</li>
+<li>Monfoulet, Cécile (AI, Inserm)</li>
+<li>Rey, Sylvie (TC, Inserm)</li>
+</ul>
+
+<h2>CDD Inserm / University</h2>
+<ul>
+<li>Amara, Braham (TC, EN)</li>
+<li>Blanchard, Camille (IE, Inserm)</li>
+<li>Kawtharani, Line (IR, Inserm)</li>
+<li>Pagin, Étienne (IE, Inserm)</li>
+</ul>
+
+<h2>Postdoctoral Researchers</h2>
+<ul>
+<li>Al Tabosh, Tala (EG)</li>
+<li>Desigaux, Théo (JCF, 70%)</li>
+<li>Lesieur, Romane (JA)</li>
+<li>Potart, Diane (NLH)</li>
+<li>Torres, Yoann (IR, Inserm)</li>
+</ul>
+
+<h2>Doctoral Students</h2>
+<ul>
+<li>Bedoux, Agathe (OK)</li>
+<li>Dechelette, Camille (AN)</li>
+<li>Galvez, Paul (MF)</li>
+<li>Gellée, Léa (DM)</li>
+<li>Medojevic, Mina (OK)</li>
+</ul>
+
+<h2>Master’s Students (2nd Year)</h2>
+<ul>
+<li>Chaouch, Rostom (MF)</li>
+<li>Derouineau, Marius (CB)</li>
+<li>Kodžaga, Laura (SC)</li>
+<li>Lafourcade, Claire (RD)</li>
+<li>Laran, Adrien (SC)</li>
+<li>Laurent, Nathan (NLH)</li>
+<li>Ly, Adrien (OK)</li>
+<li>Lykourgioti, Persefoni (Erasmus)</li>
+<li>Malaina Arjones, Arrate (FA)</li>
+<li>Rouillier, Romane (FK)</li>
+</ul>
+</div>
+
+<!-- COLONNE 3 -->
+<div class="colonne col3">
+<h2>ART BioPrint</h2>
+
+<div class="sous-division">
+<h3>Director ART</h3>
+<ul>
+<li><strong>Fricain, Jean-Christophe</strong> (PU-PH, HDR)</li>
+</ul>
+</div>
+
+<h3>Research Team ART BioPrint</h3>
+<ul>
+<li>De Oliveira, Hugo (IR, Inserm, HDR): <strong>Coordinateur</strong></li>
+<li>Dusserre, Nathalie (IR, Inserm)</li>
+<li>Handschin, Charles (IR, Inserm)</li>
+<li>Lea, Malou (TC, Inserm)</li>
+<li>Stachowicz, Marie-Laure (IE, Inserm)</li>
+</ul>
+
+<h3>CDD Inserm</h3>
+<ul>
+<li>Deepshika, Arasu (IE, Inserm)</li>
+<li>Fennell, Shane (IE, Inserm)</li>
+</ul>
+
+<h2>Shared Services</h2>
+
+<h3>Quality</h3>
+<ul>
+<li>Castet, Evelyne (IA, Inserm - ART)</li>
+<li>Dusserre, Nathalie (IR, Inserm)</li>
+</ul>
+
+<h3>Hygiene & Safety - PCR</h3>
+<ul>
+<li>Ligneron, Jérôme (TC, EN)</li>
+<li>Monfoulet, Cécile (AI, Inserm)</li>
+</ul>
+
+<h3>Administrative and Financial Unit</h3>
+<ul>
+<li>Castet, Evelyne (IA, Inserm - ART)</li>
+<li>Chatelus, Sophie (TC, Inserm - BioTis)</li>
+<li>Viart, Pierre-Michel (TC, EN, 50%)</li>
+</ul>
+
+<h3>Information Technology and Maintenance</h3>
+<ul>
+<li>Amara, Braham (TC, EN)</li>
+</ul>
+
+<h3>Laundry / Sterilization</h3>
+<ul>
+<li>Auger, Béatrice (TC, EN 80%)</li>
+</ul>
+</div>
+
+</div>
 </div>
 
 <script>
 document.getElementById("download-pdf").addEventListener("click", function () {
+
   const element = document.getElementById("pdf-content");
 
   html2pdf().set({
-    margin: 5,
+    margin: 0,
     filename: "organigramme_biotis.pdf",
-    html2canvas: { scale: 2 },
-    jsPDF: { orientation: "landscape" }
-  }).from(element).save();
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  }).from(element).toPdf().get('pdf').then(function (pdf) {
+
+    const totalPages = pdf.internal.getNumberOfPages();
+
+    if (totalPages > 1) {
+      pdf.deletePage(totalPages);
+    }
+
+  }).save();
+
 });
 </script>
 
