@@ -72,8 +72,24 @@
       margin: 4px 0;
     }
 
-    .logos-droite img.inserm { max-height: 70px; }
-    .logos-droite img.universite { max-height: 40px; }
+    /* ✅ CORRECTION : logos empilés verticalement */
+    .logos-droite {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .logos-droite img.inserm {
+      order: 1;
+      max-height: 70px;
+    }
+
+    .logos-droite img.universite {
+      order: 2;
+      max-height: 40px;
+    }
 
     /* ORGANIGRAMME */
     .organigramme {
